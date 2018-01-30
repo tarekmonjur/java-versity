@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/global_pharma</property>
+        <property name="connection.username">root</property>
+        <!--<property name="connection.password"></property>-->
+        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
+        <property name="hibernate.connection.autocommit">false</property>
+        <property name="hibernate.default_entity_mode">pojo</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
+        <property name="connection.pool_size">1</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.CacheException</property>
+        
+        <!-- DB schema will be updated if needed -->
+         <!--<property name="hbm2ddl.auto">create</property>-->
+         <property name="hbm2ddl.auto">update</property>
+
+        <mapping class="Site.Models.Entities.UserEntity"/>
+        <mapping class="Site.Models.Entities.PharmacyEntity"/>
+        <mapping class="Site.Models.Entities.LocationEntity"/>
+
+        <mapping class="Admin.Models.Entities.MedicineEntity"/>
+        <mapping class="Admin.Models.Entities.AdminEntity"/>
+        <mapping class="Admin.Models.Entities.RoleEntity"/>
+    </session-factory>
+</hibernate-configuration>
